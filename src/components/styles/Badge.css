@@ -30,6 +30,10 @@
   background: #f4f4f7;
 }
 
+.Badge__section-info h3 {
+  text-align: center;
+}
+
 .Badge__avatar {
   border-radius: 50%;
   margin-right: 1rem;
@@ -38,7 +42,6 @@
 }
 
 .Badge__footer {
-  height: 54px;
   display: flex;
   justify-content: center;
   align-items: center;

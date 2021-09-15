@@ -1,22 +1,16 @@
 import React from "react";
 
 class BadgeForm extends React.Component {
-  handleClick = (e) => {
-    console.log("Button was clicked");
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form was submitted");
-    console.log(this.state);
-  };
-
   render() {
     return (
       <div>
-        <h1>New Attendant</h1>
+        <form onSubmit={this.props.handleSubmit}>
+          {this.props.error && (
+            <div className="alert alert-danger mt-4" role="alert">
+              An error has occurred: {this.props.error.message}
+            </div>
+          )}
 
-        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>First Name</label>
             <input
@@ -25,6 +19,7 @@ class BadgeForm extends React.Component {
               type="text"
               name="firstName"
               value={this.props.formValues.firstName}
+              required
             />
           </div>
 
@@ -36,6 +31,7 @@ class BadgeForm extends React.Component {
               type="text"
               name="lastName"
               value={this.props.formValues.lastName}
+              required
             />
           </div>
 
@@ -47,6 +43,7 @@ class BadgeForm extends React.Component {
               type="email"
               name="email"
               value={this.props.formValues.email}
+              required
             />
           </div>
 
@@ -58,6 +55,7 @@ class BadgeForm extends React.Component {
               type="text"
               name="jobTitle"
               value={this.props.formValues.jobTitle}
+              required
             />
           </div>
 
@@ -69,12 +67,11 @@ class BadgeForm extends React.Component {
               type="text"
               name="twitter"
               value={this.props.formValues.twitter}
+              required
             />
           </div>
 
-          <button onClick={this.handleClick} className="btn btn-primary">
-            Save
-          </button>
+          <button className="btn btn-primary">Save</button>
         </form>
       </div>
     );
